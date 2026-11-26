@@ -3,111 +3,203 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080b20">
-  <meta name="description" content="Galaxy Atlas — hành trình khám phá những thiên hà trong vũ trụ.">
-  <title>GALAXY ATLAS — Bản đồ những thiên hà</title>
+  <meta name="theme-color" content="#080a18">
+  <meta name="description" content="Galaxy Atlas — chuyến du hành tương tác khám phá các thiên hà, Ngân Hà và vũ trụ sâu.">
+  <title>GALAXY ATLAS — Explore the Universe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="starfield" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
   <header class="topbar">
-    <a class="brand" href="#slide-0" aria-label="Galaxy Atlas trang đầu"><span class="brand-mark">✦</span> GALAXY <b>ATLAS</b></a>
-    <div class="top-meta"><span class="live-dot"></span> A JOURNEY THROUGH THE COSMOS</div>
-    <button class="toc-toggle" id="tocToggle" aria-label="Mở danh mục">☰</button>
+    <a class="brand" href="#home"><span class="brand-symbol">✦</span><span>GALAXY <b>ATLAS</b></span></a>
+    <div class="top-center"><span class="status-dot"></span> INTERACTIVE UNIVERSE EXPERIENCE</div>
+    <div class="top-actions"><span class="progress-label" id="progressLabel">01 / 06 DISCOVERED</span><button class="menu-toggle" id="menuToggle" aria-label="Mở điều hướng">☰</button></div>
   </header>
+
   <aside class="sidebar" id="sidebar">
-    <div class="side-label">HÀNH TRÌNH</div>
-    <nav id="chapterNav" aria-label="Danh mục chương"></nav>
-    <div class="side-bottom"><span>01 — 09</span><span>THE UNIVERSE</span></div>
+    <div class="sidebar-head">YOUR EXPEDITION <span>✧</span></div>
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <a class="nav-link active" href="#home"><span class="nav-num">00</span><span>Portal</span><i>↗</i></a>
+      <a class="nav-link" href="#explorer"><span class="nav-num">01</span><span>Galaxy Explorer</span><i>↗</i></a>
+      <a class="nav-link" href="#types"><span class="nav-num">02</span><span>Galaxy Types</span><i>↗</i></a>
+      <a class="nav-link" href="#milkyway"><span class="nav-num">03</span><span>Our Galactic Home</span><i>↗</i></a>
+      <a class="nav-link" href="#deep-space"><span class="nav-num">04</span><span>Deep Space</span><i>↗</i></a>
+      <a class="nav-link" href="#observatory"><span class="nav-num">05</span><span>Observatory</span><i>↗</i></a>
+      <a class="nav-link" href="#academy"><span class="nav-num">06</span><span>Cosmic Academy</span><i>↗</i></a>
+    </nav>
+    <div class="sidebar-map">
+      <div class="sidebar-map-title">COSMIC MAP <span>LIVE</span></div>
+      <a class="mini-map" href="#explorer" aria-label="Mở bản đồ vũ trụ">
+        <span class="mini-orbit orbit-a"></span><span class="mini-orbit orbit-b"></span><span class="mini-core"></span><span class="mini-star s-a"></span><span class="mini-star s-b"></span><span class="mini-star s-c"></span>
+      </a>
+      <p>Navigate through the unknown.</p>
+    </div>
+    <div class="sidebar-foot"><span>FIELD NOTES · 2026</span><span>V.02</span></div>
   </aside>
-  <main class="presentation" id="presentation">
-    <section class="slide hero active" id="slide-0" data-title="Khởi hành">
-      <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+
+  <main>
+    <section class="hero" id="home">
+      <canvas id="portalCanvas" aria-label="Mô phỏng cổng không gian ba chiều"></canvas>
+      <div class="hero-vignette"></div>
       <div class="hero-copy">
-        <p class="eyebrow">A COSMIC EXPLORATION · 2026</p>
-        <h1>GALAXY<br><em>ATLAS</em></h1>
-        <p class="hero-sub">Bản đồ những thiên hà</p>
-        <p class="hero-desc">Một hành trình xuyên qua những hòn đảo sao khổng lồ — từ ngôi nhà Ngân Hà của chúng ta đến những miền xa thẳm của vũ trụ.</p>
-        <button class="primary-btn" data-go="1">BẮT ĐẦU HÀNH TRÌNH <span>↗</span></button>
+        <div class="eyebrow"><span class="eyebrow-line"></span> A JOURNEY BEYOND THE STARS</div>
+        <h1>THE<br><em>UNIVERSE</em><span class="title-period">.</span></h1>
+        <p class="hero-vn">Bản đồ những thiên hà</p>
+        <p class="hero-desc">Không chỉ quan sát vũ trụ. Hãy bước vào, chạm tới những thế giới xa xôi và tự mình khám phá những câu chuyện được viết bằng ánh sáng.</p>
+        <a class="enter-button" href="#explorer"><span class="enter-icon">↗</span><span>ENTER THE UNIVERSE<small>BEGIN YOUR EXPEDITION</small></span></a>
       </div>
-      <div class="hero-art" aria-hidden="true"><div class="galaxy galaxy-main"></div><div class="planet planet-a"></div><div class="planet planet-b"></div><span class="art-caption">FIG. 001 — DEEP SPACE</span></div>
-      <div class="hero-foot"><span>SCROLL OR USE ARROW KEYS</span><span>01 / 09</span></div>
+      <div class="portal-caption"><span>FIG. 001</span><span>THE COSMIC GATEWAY</span></div>
+      <div class="hero-bottom"><span>SCROLL TO EXPLORE</span><span class="scroll-indicator">↓</span><span>01 — 06 SECTORS</span></div>
+      <div class="hero-coordinate">RA 00h 42m 44s<br>DEC +41° 16′ 9″</div>
     </section>
 
-    <section class="slide" id="slide-1" data-title="Vũ trụ">
-      <div class="slide-kicker">01 / THE BIG PICTURE</div><div class="slide-grid">
-        <div><p class="eyebrow">CHƯƠNG MỘT</p><h2>Vũ trụ —<br><em>ngôi nhà rộng lớn</em></h2><p class="lead">Trái Đất chỉ là một hành tinh nhỏ quanh Mặt Trời. Mặt Trời lại chỉ là một trong hàng trăm tỷ ngôi sao thuộc Ngân Hà.</p><p>Vũ trụ bao gồm không gian, thời gian, vật chất và năng lượng. Trong vũ trụ quan sát được, các thiên hà phân bố trên những quy mô khổng lồ, tạo nên một mạng lưới cấu trúc rộng lớn.</p><div class="fact"><span class="fact-icon">✧</span><div><b>Hãy thử hình dung</b><br>Nếu Trái Đất là một hạt bụi, thì thiên hà là cả một thành phố sao — và vũ trụ là vô số thành phố ấy.</div></div></div>
-        <div class="visual universe-visual"><div class="cosmic-web"></div><span class="visual-tag">THE COSMIC WEB</span><span class="visual-note">Các cụm thiên hà kết nối bởi những cấu trúc quy mô lớn</span></div>
+    <section class="section explorer-section" id="explorer">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> SECTOR 01 · INTERACTIVE SIMULATION</div><h2>Galaxy <em>Explorer</em></h2><p class="section-intro">Một thiên hà không phải là một đám sao đứng yên. Đó là một hệ thống khổng lồ được định hình bởi hấp dẫn, chuyển động và thời gian.</p></div>
+        <div class="section-index">01 <span>/ 06</span></div>
+      </div>
+      <div class="explorer-layout">
+        <div class="scene-frame">
+          <div class="scene-top"><span><i class="live-dot"></i> LIVE 3D MODEL</span><span>SPIRAL GALAXY · SIMULATION</span></div>
+          <canvas id="explorerCanvas" aria-label="Mô hình thiên hà xoắn ốc tương tác"></canvas>
+          <div class="scene-hint"><span>↔ DRAG TO ROTATE</span><span>SCROLL TO ZOOM</span></div>
+          <button class="reset-view" id="resetView">↺ RESET VIEW</button>
+          <div class="scene-crosshair">+</div>
+        </div>
+        <aside class="explorer-info">
+          <div class="info-tag">OBJECT PROFILE / 001</div>
+          <h3 id="objectName">Spiral Galaxy</h3>
+          <p id="objectDescription">Thiên hà xoắn ốc có đĩa dẹt, vùng phình trung tâm và các cánh tay xoắn chứa nhiều sao, khí và bụi.</p>
+          <div class="info-divider"></div>
+          <div class="info-stat"><span>SHAPE</span><b id="objectShape">Disk + spiral arms</b></div>
+          <div class="info-stat"><span>MAIN FORCE</span><b>Gravity</b></div>
+          <div class="info-stat"><span>EXAMPLE</span><b id="objectExample">Milky Way · M31</b></div>
+          <div class="info-note"><span>✧</span> Đây là mô phỏng minh họa, không phải bản đồ tỷ lệ chính xác của một thiên hà cụ thể.</div>
+          <div class="object-switch">
+            <button class="object-choice active" data-object="spiral">01 <span>SPIRAL</span></button>
+            <button class="object-choice" data-object="elliptical">02 <span>ELLIPTICAL</span></button>
+            <button class="object-choice" data-object="irregular">03 <span>IRREGULAR</span></button>
+          </div>
+        </aside>
+      </div>
+      <div class="fact-strip"><span class="fact-symbol">✦</span><p><b>Did you know?</b> Một thiên hà có thể chứa hàng triệu, hàng tỷ, thậm chí hàng nghìn tỷ ngôi sao — nhưng phần lớn thể tích của nó là không gian rất loãng.</p><span class="fact-ref">COSMIC FACT 001</span></div>
+    </section>
+
+    <section class="section types-section" id="types">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> SECTOR 02 · MORPHOLOGY</div><h2>Three shapes.<br><em>Infinite stories.</em></h2><p class="section-intro">Hình dạng của thiên hà hé lộ manh mối về lịch sử hình thành, chuyển động và môi trường xung quanh nó.</p></div>
+        <div class="section-index">02 <span>/ 06</span></div>
+      </div>
+      <div class="type-explorer">
+        <div class="type-tabs" role="tablist" aria-label="Chọn loại thiên hà">
+          <button class="type-tab active" data-type="spiral" role="tab" aria-selected="true"><span>01</span> Spiral</button>
+          <button class="type-tab" data-type="elliptical" role="tab" aria-selected="false"><span>02</span> Elliptical</button>
+          <button class="type-tab" data-type="irregular" role="tab" aria-selected="false"><span>03</span> Irregular</button>
+        </div>
+        <div class="type-display">
+          <div class="type-art-large spiral-art-large" id="typeArt"><div class="type-glow"></div><div class="type-arm"></div></div>
+          <div class="type-detail">
+            <div class="info-tag" id="typeEyebrow">HUBBLE CLASSIFICATION · SA–SB–SC</div>
+            <h3 id="typeTitle">Spiral <em>Galaxy</em></h3>
+            <p id="typeText">Thiên hà xoắn ốc có một đĩa tương đối phẳng, vùng phình trung tâm và các cánh tay xoắn. Những cánh tay này thường nổi bật nhờ các sao trẻ, vùng khí và bụi, cùng hoạt động hình thành sao.</p>
+            <div class="type-facts"><div><span>STRUCTURE</span><b id="typeStructure">Disk · Bulge · Arms</b></div><div><span>EXAMPLES</span><b id="typeExamples">Milky Way · Andromeda</b></div></div>
+            <div class="type-tip"><span>✧</span><span id="typeTip">Hãy tưởng tượng một chiếc chong chóng khổng lồ được tạo nên từ hàng tỷ ngôi sao.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="classification-note"><b>Ghi chú khoa học</b><span>Hệ phân loại hình thái Hubble còn có các phân nhóm chi tiết hơn. Ba nhóm trên là cách giới thiệu khái quát, không bao quát toàn bộ sự đa dạng của thiên hà.</span></div>
+    </section>
+
+    <section class="section milky-section" id="milkyway">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> SECTOR 03 · OUR HOME GALAXY</div><h2>Our Galactic <em>Home</em></h2><p class="section-intro">Chúng ta không đứng ngoài để ngắm Ngân Hà. Mặt Trời và Trái Đất nằm ngay bên trong chiếc đĩa sao rộng lớn ấy.</p></div>
+        <div class="section-index">03 <span>/ 06</span></div>
+      </div>
+      <div class="milky-layout">
+        <div class="milky-map-card">
+          <div class="map-card-head"><span>MILKY WAY · TOP VIEW</span><span>SCHEMATIC MAP</span></div>
+          <div class="milky-map" id="milkyMap">
+            <div class="mw-halo"></div><div class="mw-arm arm-one"></div><div class="mw-arm arm-two"></div><div class="mw-arm arm-three"></div><div class="mw-arm arm-four"></div><div class="mw-core"></div>
+            <button class="map-point point-core active" data-point="core" aria-label="Vùng trung tâm Ngân Hà"><i></i><span>GALACTIC CENTER</span></button>
+            <button class="map-point point-sun" data-point="sun" aria-label="Vị trí Hệ Mặt Trời"><i></i><span>SOLAR SYSTEM</span></button>
+            <button class="map-point point-orion" data-point="orion" aria-label="Nhánh Orion"><i></i><span>ORION ARM</span></button>
+            <div class="map-compass">N<br><span>✦</span></div>
+          </div>
+          <div class="map-legend"><span><i class="legend-gold"></i> Galactic center</span><span><i class="legend-blue"></i> Solar neighborhood</span><span><i class="legend-line"></i> Spiral arms</span></div>
+        </div>
+        <div class="milky-info">
+          <div class="info-tag">LOCATION DATA / MILKY WAY</div>
+          <h3 id="milkyTitle">Galactic Center</h3>
+          <p id="milkyText">Vùng trung tâm Ngân Hà là khu vực có mật độ sao cao. Tại đây có Sagittarius A*, một lỗ đen siêu nặng ở tâm thiên hà.</p>
+          <div class="milky-metrics"><div><strong>~100,000</strong><span>LIGHT-YEARS ACROSS</span></div><div><strong>~26,000</strong><span>LIGHT-YEARS TO CENTER</span></div></div>
+          <p class="small-note">Các số liệu là ước tính gần đúng; kích thước và khoảng cách phụ thuộc cách xác định ranh giới, mô hình của Ngân Hà.</p>
+        </div>
+      </div>
+      <div class="milky-bottom"><span>✦</span><p>Hãy chọn các điểm phát sáng trên bản đồ để khám phá những khu vực khác nhau của Ngân Hà.</p></div>
+    </section>
+
+    <section class="section deep-section" id="deep-space">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> SECTOR 04 · BEYOND THE MILKY WAY</div><h2>Into the <em>Deep Space</em></h2><p class="section-intro">Mỗi điểm sáng trong ảnh trường sâu có thể là một thiên hà — với hàng triệu hay hàng tỷ ngôi sao của riêng nó.</p></div>
+        <div class="section-index">04 <span>/ 06</span></div>
+      </div>
+      <div class="deep-feature">
+        <div class="deep-art"><div class="deep-nebula nebula-a"></div><div class="deep-nebula nebula-b"></div><div class="deep-dust"></div><span class="deep-art-label">A WINDOW THROUGH TIME</span></div>
+        <div class="deep-copy"><div class="info-tag">COSMIC PERSPECTIVE</div><h3>Nhìn xa hơn.<br><em>Nhìn về quá khứ.</em></h3><p>Ánh sáng không truyền đi tức thời. Khi quan sát một thiên hà ở cách xa hàng tỷ năm ánh sáng, chúng ta đang nhận được ánh sáng đã khởi hành từ hàng tỷ năm trước.</p><p>Nhờ những quan sát sâu, các nhà thiên văn có thể nghiên cứu thiên hà ở nhiều giai đoạn khác nhau trong lịch sử vũ trụ và tìm hiểu cách chúng thay đổi theo thời gian.</p><div class="deep-callout"><b>LOOKBACK TIME</b><span>Khoảng thời gian ánh sáng đã di chuyển trước khi đến được kính thiên văn của chúng ta.</span></div></div>
+      </div>
+      <div class="deep-cards">
+        <article class="deep-card"><span class="deep-card-number">01 / DISTANCE</span><h4>Khoảng cách vũ trụ</h4><p>Năm ánh sáng là đơn vị đo khoảng cách: quãng đường ánh sáng đi được trong một năm, xấp xỉ 9,46 nghìn tỷ kilômét.</p></article>
+        <article class="deep-card"><span class="deep-card-number">02 / REDSHIFT</span><h4>Dịch chuyển đỏ</h4><p>Ánh sáng từ nhiều thiên hà xa bị kéo dài bước sóng do sự giãn nở của vũ trụ, dịch về phía đỏ của quang phổ.</p></article>
+        <article class="deep-card"><span class="deep-card-number">03 / EVOLUTION</span><h4>Lịch sử thiên hà</h4><p>So sánh các thiên hà ở những khoảng cách khác nhau giúp ta tìm hiểu sự hình thành sao, cấu trúc và tiến hóa thiên hà.</p></article>
       </div>
     </section>
 
-    <section class="slide" id="slide-2" data-title="Thiên hà là gì?">
-      <div class="slide-kicker">02 / GALAXY ANATOMY</div><div class="slide-grid">
-        <div><p class="eyebrow">CHƯƠNG HAI</p><h2>Thiên hà là<br><em>gì?</em></h2><p class="lead">Thiên hà là một hệ thống khổng lồ gồm sao, khí, bụi vũ trụ, vật chất tối và các thành phần khác, liên kết với nhau chủ yếu bởi lực hấp dẫn.</p><p>Một thiên hà có thể chứa từ hàng triệu đến hàng nghìn tỷ ngôi sao. Giữa các ngôi sao là những khoảng không gian rất rộng, cùng các đám mây khí và bụi — nơi nhiều ngôi sao mới có thể hình thành.</p><div class="chips"><span>NGÔI SAO</span><span>KHÍ & BỤI</span><span>VẬT CHẤT TỐI</span><span>HỆ HÀNH TINH</span></div></div>
-        <div class="visual anatomy-visual"><div class="anatomy-galaxy"></div><div class="label-line label-core">VÙNG TRUNG TÂM</div><div class="label-line label-disk">ĐĨA THIÊN HÀ</div><div class="label-line label-halo">QUẦNG HALO</div><span class="visual-note">Minh họa cấu trúc khái quát của một thiên hà xoắn ốc</span></div>
+    <section class="section observatory-section" id="observatory">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> SECTOR 05 · HUMANITY'S EYES</div><h2>Deep Space <em>Observatory</em></h2><p class="section-intro">Chúng ta khám phá những thế giới xa xôi bằng cách thu nhận và phân tích ánh sáng mà chúng gửi đến.</p></div>
+        <div class="section-index">05 <span>/ 06</span></div>
+      </div>
+      <div class="observatory-grid">
+        <article class="observatory-card hubble-card"><div class="observatory-visual"><div class="telescope-shape hubble-shape"></div><span>01 / VISIBLE · UV · NEAR-INFRARED</span></div><div class="observatory-body"><div class="info-tag">SPACE TELESCOPE · 1990</div><h3>Hubble</h3><p>Hubble quan sát chủ yếu ở ánh sáng khả kiến, tử ngoại và cận hồng ngoại. Những quan sát sâu của kính đã giúp con người nghiên cứu thiên hà ở nhiều khoảng cách và thời kỳ khác nhau.</p><a href="https://science.nasa.gov/mission/hubble/" target="_blank" rel="noopener noreferrer">EXPLORE THE MISSION ↗</a></div></article>
+        <article class="observatory-card webb-card"><div class="observatory-visual"><div class="telescope-shape webb-shape"></div><span>02 / INFRARED ASTRONOMY</span></div><div class="observatory-body"><div class="info-tag">SPACE TELESCOPE · 2021 LAUNCH</div><h3>James Webb</h3><p>James Webb được tối ưu cho quan sát hồng ngoại, giúp nghiên cứu các thiên hà rất xa, những vùng hình thành sao bị bụi che khuất và khí quyển ngoại hành tinh.</p><a href="https://science.nasa.gov/mission/webb/" target="_blank" rel="noopener noreferrer">EXPLORE THE MISSION ↗</a></div></article>
+        <article class="observatory-card eso-card"><div class="observatory-visual"><div class="telescope-shape ground-shape"></div><span>03 / OBSERVATORIES ON EARTH</span></div><div class="observatory-body"><div class="info-tag">GROUND-BASED ASTRONOMY</div><h3>Earth Observatories</h3><p>Các đài quan sát mặt đất sử dụng kính thiên văn quang học, vô tuyến và nhiều thiết bị chuyên dụng để khảo sát bầu trời và đo đạc đặc tính của thiên hà.</p><a href="https://www.eso.org/public/" target="_blank" rel="noopener noreferrer">DISCOVER ESO ↗</a></div></article>
+      </div>
+      <div class="spectrum-note"><span>✧</span><p><b>Không chỉ có ánh sáng nhìn thấy.</b> Thiên văn học hiện đại nghiên cứu vũ trụ qua nhiều vùng của phổ điện từ, từ sóng vô tuyến đến tia gamma.</p></div>
+    </section>
+
+    <section class="section academy-section" id="academy">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> SECTOR 06 · TEST YOUR KNOWLEDGE</div><h2>Cosmic <em>Academy</em></h2><p class="section-intro">Một vài câu hỏi để kiểm tra những gì bạn vừa khám phá. Mỗi câu trả lời đều đi kèm lời giải thích.</p></div>
+        <div class="section-index">06 <span>/ 06</span></div>
+      </div>
+      <div class="academy-layout">
+        <div class="quiz-panel">
+          <div class="quiz-top"><span>MISSION BRIEFING</span><span id="quizCount">QUESTION 01 / 05</span></div>
+          <div class="quiz-progress"><span id="quizProgress"></span></div>
+          <div id="quizContent">
+            <div class="quiz-kicker">COSMIC KNOWLEDGE TEST</div>
+            <h3 id="quizQuestion">Thiên hà được liên kết với nhau chủ yếu bởi lực nào?</h3>
+            <div class="quiz-options" id="quizOptions"></div>
+            <div class="quiz-feedback" id="quizFeedback" aria-live="polite"></div>
+            <div class="quiz-actions"><span id="quizScore">SCORE 0</span><button id="quizNext" disabled>CONTINUE <span>→</span></button></div>
+          </div>
+          <div class="quiz-result hidden" id="quizResult"><div class="result-orbit">✦</div><div class="info-tag">MISSION COMPLETE</div><h3 id="resultTitle">Well explored.</h3><p id="resultText"></p><button id="restartQuiz" class="enter-button compact"><span class="enter-icon">↺</span><span>REPLAY MISSION<small>TRY AGAIN</small></span></button></div>
+        </div>
+        <aside class="academy-side"><div class="academy-emblem">✧</div><div class="info-tag">YOUR DISCOVERY LOG</div><h3>Every answer<br>takes you further.</h3><p>Hoàn thành bài kiểm tra để ghi nhận thành tích khám phá trên thiết bị này.</p><div class="achievement"><span>✦</span><div><b>Curious Mind</b><small>Hoàn thành Cosmic Academy</small></div><i id="achievementStatus">LOCKED</i></div><div class="achievement"><span>◎</span><div><b>Galaxy Observer</b><small>Khám phá các khu vực</small></div><i id="observerStatus">IN PROGRESS</i></div></aside>
       </div>
     </section>
 
-    <section class="slide" id="slide-3" data-title="Các loại thiên hà">
-      <div class="slide-kicker">03 / GALAXY CLASSIFICATION</div><p class="eyebrow">CHƯƠNG BA</p><h2>Ba dáng hình<br><em>của những thế giới sao</em></h2><p class="lead">Dựa trên hình thái quan sát được, thiên hà thường được phân thành ba nhóm lớn.</p>
-      <div class="type-cards">
-        <article class="type-card"><div class="type-art spiral-art"><i></i></div><span class="card-index">TYPE 01</span><h3>Xoắn ốc</h3><p>Có đĩa dẹt, vùng trung tâm và các cánh tay xoắn ốc. Khí và bụi thường tập trung trong đĩa, nơi có hoạt động hình thành sao.</p><small>VÍ DỤ: NGÂN HÀ, ANDROMEDA</small></article>
-        <article class="type-card"><div class="type-art elliptical-art"></div><span class="card-index">TYPE 02</span><h3>Elip</h3><p>Có hình dạng gần cầu hoặc elip, ít cấu trúc cánh tay rõ rệt. Nhiều thiên hà elip chứa quần thể sao già và ít khí lạnh.</p><small>HÌNH DẠNG: E0 — E7</small></article>
-        <article class="type-card"><div class="type-art irregular-art"><i></i></div><span class="card-index">TYPE 03</span><h3>Bất định hình</h3><p>Không có hình dạng đều đặn. Hình thái có thể chịu ảnh hưởng từ tương tác hấp dẫn hoặc những đợt hình thành sao.</p><small>VÍ DỤ: ĐÁM MÂY MAGELLAN LỚN</small></article>
-      </div>
-    </section>
-
-    <section class="slide" id="slide-4" data-title="Ngân Hà">
-      <div class="slide-kicker">04 / OUR HOME GALAXY</div><div class="slide-grid">
-        <div><p class="eyebrow">CHƯƠNG BỐN</p><h2>Ngân Hà —<br><em>nhà của chúng ta</em></h2><p class="lead">Hệ Mặt Trời nằm trong một nhánh xoắn ốc nhỏ, cách vùng trung tâm Ngân Hà khoảng 26.000 năm ánh sáng.</p><p>Ngân Hà là thiên hà xoắn ốc có thanh. Nó chứa hàng trăm tỷ ngôi sao, cùng khí, bụi và một quầng vật chất tối rộng lớn. Từ Trái Đất, dải sáng mờ vắt ngang bầu trời đêm chính là hình ảnh chúng ta nhìn dọc theo mặt phẳng đĩa thiên hà.</p><div class="stat-row"><div><strong>~100.000</strong><span>năm ánh sáng đường kính</span></div><div><strong>~26.000</strong><span>năm ánh sáng tới tâm</span></div></div><p class="source-note">Các con số là giá trị ước tính, tùy phương pháp đo và định nghĩa ranh giới thiên hà.</p></div>
-        <div class="visual milky-visual"><div class="milky-band"></div><span class="visual-tag">THE MILKY WAY</span><span class="visual-note">Hình minh họa nhìn thiên hà từ bên ngoài</span></div>
-      </div>
-    </section>
-
-    <section class="slide" id="slide-5" data-title="Andromeda">
-      <div class="slide-kicker">05 / OUR GALACTIC NEIGHBOR</div><div class="slide-grid">
-        <div><p class="eyebrow">CHƯƠNG NĂM</p><h2>Andromeda —<br><em>người hàng xóm lớn</em></h2><p class="lead">Thiên hà Tiên Nữ (Andromeda, M31) là thiên hà xoắn ốc lớn gần Ngân Hà nhất trong nhóm thiên hà địa phương.</p><p>Nằm cách chúng ta khoảng 2,5 triệu năm ánh sáng, Andromeda có thể quan sát bằng mắt thường ở nơi trời tối. Cùng với Ngân Hà và nhiều thiên hà nhỏ hơn, nó thuộc Nhóm Địa Phương.</p><div class="fact"><span class="fact-icon">✧</span><div><b>Một cuộc gặp gỡ trong tương lai xa</b><br>Andromeda và Ngân Hà đang tiến lại gần nhau. Hai thiên hà dự kiến sẽ tương tác và hợp nhất trong vài tỷ năm tới; diễn biến chính xác vẫn còn phụ thuộc vào các yếu tố hấp dẫn khác.</div></div></div>
-        <div class="visual andromeda-visual"><div class="andromeda-disc"></div><span class="visual-tag">M31 · ANDROMEDA</span><span class="visual-note">Thiên hà xoắn ốc nhìn nghiêng</span></div>
-      </div>
-    </section>
-
-    <section class="slide" id="slide-6" data-title="Vòng đời thiên hà">
-      <div class="slide-kicker">06 / COSMIC EVOLUTION</div><p class="eyebrow">CHƯƠNG SÁU</p><h2>Thiên hà cũng<br><em>thay đổi theo thời gian</em></h2><p class="lead">Thiên hà hình thành và phát triển qua hàng tỷ năm, chịu tác động của hấp dẫn, khí, sự tạo sao và tương tác với các thiên hà khác.</p>
-      <div class="timeline">
-        <div class="time-step"><span>01</span><div class="time-dot"></div><h3>Khởi đầu</h3><p>Những vùng vật chất đậm đặc dần phát triển dưới tác dụng của hấp dẫn.</p></div>
-        <div class="time-step"><span>02</span><div class="time-dot"></div><h3>Tạo sao</h3><p>Khí nguội co lại thành các đám mây, hình thành những thế hệ sao mới.</p></div>
-        <div class="time-step"><span>03</span><div class="time-dot"></div><h3>Tương tác</h3><p>Các thiên hà có thể làm biến đổi hình dạng và tốc độ hình thành sao của nhau.</p></div>
-        <div class="time-step"><span>04</span><div class="time-dot"></div><h3>Biến đổi</h3><p>Cấu trúc, thành phần và hoạt động của thiên hà tiếp tục thay đổi theo thời gian.</p></div>
-      </div>
-      <div class="bottom-note">Không có một “vòng đời” duy nhất áp dụng cho mọi thiên hà — lịch sử của mỗi thiên hà rất khác nhau.</div>
-    </section>
-
-    <section class="slide" id="slide-7" data-title="Vượt ngoài Ngân Hà">
-      <div class="slide-kicker">07 / DEEP FIELD</div><div class="slide-grid">
-        <div><p class="eyebrow">CHƯƠNG BẢY</p><h2>Vượt xa<br><em>ngôi nhà Ngân Hà</em></h2><p class="lead">Khi nhìn sâu vào không gian, chúng ta cũng đang nhìn ngược về quá khứ.</p><p>Ánh sáng cần thời gian để di chuyển. Vì vậy, ánh sáng từ một thiên hà cách xa hàng tỷ năm ánh sáng đã rời khỏi thiên hà ấy từ hàng tỷ năm trước. Các quan sát sâu giúp nhà thiên văn nghiên cứu thiên hà ở nhiều giai đoạn khác nhau của lịch sử vũ trụ.</p><div class="fact"><span class="fact-icon">✧</span><div><b>Không gian cũng là cỗ máy thời gian</b><br>Nhìn càng xa, ta thường càng quan sát những hình ảnh cổ xưa hơn của vũ trụ.</div></div></div>
-        <div class="visual deep-visual"><div class="deep-galaxy g1"></div><div class="deep-galaxy g2"></div><div class="deep-galaxy g3"></div><div class="deep-galaxy g4"></div><span class="visual-tag">DEEP FIELD — DISTANT GALAXIES</span><span class="visual-note">Minh họa nhiều thiên hà ở khoảng cách khác nhau</span></div>
-      </div>
-    </section>
-
-    <section class="slide" id="slide-8" data-title="Cách chúng ta khám phá">
-      <div class="slide-kicker">08 / EYES ON THE SKY</div><p class="eyebrow">CHƯƠNG TÁM</p><h2>Những đôi mắt<br><em>nhìn vào vũ trụ</em></h2><p class="lead">Kính thiên văn thu nhận ánh sáng và các dạng bức xạ khác để giúp con người nghiên cứu những vật thể rất xa.</p>
-      <div class="telescope-cards">
-        <article><div class="scope-icon">◉</div><span>1990 — SPACE TELESCOPE</span><h3>Hubble</h3><p>Kính thiên văn không gian Hubble quan sát chủ yếu ở vùng ánh sáng khả kiến, tử ngoại và cận hồng ngoại. Những hình ảnh sâu của Hubble đã góp phần thay đổi hiểu biết về thiên hà.</p><a href="https://science.nasa.gov/mission/hubble/" target="_blank" rel="noreferrer">KHÁM PHÁ HUBBLE ↗</a></article>
-        <article><div class="scope-icon">✧</div><span>2021 — INFRARED OBSERVATORY</span><h3>James Webb</h3><p>Kính thiên văn không gian James Webb quan sát chủ yếu ở vùng hồng ngoại, giúp nghiên cứu các thiên hà rất xa, bụi vũ trụ và quá trình hình thành sao.</p><a href="https://science.nasa.gov/mission/webb/" target="_blank" rel="noreferrer">KHÁM PHÁ WEBB ↗</a></article>
-        <article><div class="scope-icon">⌁</div><span>FROM EARTH</span><h3>Kính thiên văn mặt đất</h3><p>Các đài quan sát trên mặt đất sử dụng nhiều loại kính và thiết bị đo để khảo sát bầu trời, theo dõi phổ ánh sáng và lập bản đồ thiên hà.</p><a href="https://www.eso.org/public/" target="_blank" rel="noreferrer">TÌM HIỂU ESO ↗</a></article>
-      </div>
-    </section>
-
-    <section class="slide finale" id="slide-9" data-title="Vũ trụ bất tận">
-      <div class="final-nebula"></div><div class="final-content"><p class="eyebrow">09 / THE END IS A BEGINNING</p><h2>Vũ trụ rộng lớn.<br><em>Sự tò mò còn rộng hơn.</em></h2><p>Mỗi thiên hà là một câu chuyện được viết bằng ánh sáng, thời gian và lực hấp dẫn. Và hành trình khám phá vẫn đang tiếp tục.</p><div class="final-rule"></div><span class="final-sign">GALAXY ATLAS <i>✦</i> END OF PRESENTATION</span><button class="primary-btn" data-go="0">↺ XEM LẠI HÀNH TRÌNH</button></div>
+    <section class="closing" id="closing">
+      <div class="closing-stars"></div><div class="closing-content"><div class="eyebrow"><span class="eyebrow-line"></span> END OF EXPEDITION</div><h2>The universe is vast.<br><em>Stay curious.</em></h2><p>Mỗi thiên hà là một câu chuyện được viết bằng ánh sáng, thời gian và lực hấp dẫn. Hành trình khám phá vẫn đang tiếp tục.</p><a href="#home" class="enter-button"><span class="enter-icon">↺</span><span>RETURN TO THE PORTAL<small>START A NEW JOURNEY</small></span></a><div class="closing-sign">GALAXY ATLAS <span>✦</span> EXPLORE THE UNKNOWN</div></div>
     </section>
   </main>
-  <footer class="controls">
-    <button id="prevBtn" aria-label="Trang trước">←</button><div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><span id="progressText">01 / 09</span></div><button id="nextBtn" aria-label="Trang tiếp">→</button>
-  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Về đầu trang">↑</button>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
